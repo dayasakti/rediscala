@@ -1,7 +1,7 @@
 rediscala [![Build Status](https://travis-ci.org/etaty/rediscala.png)](https://travis-ci.org/etaty/rediscala) [![Coverage Status](https://coveralls.io/repos/etaty/rediscala/badge.png?branch=master)](https://coveralls.io/r/etaty/rediscala?branch=master)
 =========
 
-A [Redis](http://redis.io/) client for Scala (2.10+) and (AKKA 2.2+) with non-blocking and asynchronous I/O operations.
+A [Redis](http://redis.io/) client for Scala (2.10+) and (AKKA 2.3+) with non-blocking and asynchronous I/O operations.
 
  * Reactive : Redis requests/replies are wrapped in Futures.
 
@@ -244,3 +244,16 @@ You can run the bench with :
 2. run `sbt bench:test`
 3. open the bench report `rediscala/tmp/report/index.html`
 
+### Developer notes
+
+To push to your local nexus, edit the ~/.sbt/rediscala-build.settings
+
+e.g.
+```
+nexus.root=http://mynexus
+nexus.releasesPath=/nexus/content/repositories/releases
+nexus.snapshotPath=/nexus/content/repositories/snapshots
+```
+
+Set your nexus credential here: 
+credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
