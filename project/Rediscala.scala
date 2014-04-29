@@ -16,7 +16,7 @@ object Resolvers {
 }
 
 object Dependencies {
-  val akkaVersion = "2.2.1"
+  val akkaVersion = "2.3.2"
 
   import sbt._
 
@@ -43,14 +43,14 @@ object Dependencies {
 object RediscalaBuild extends Build {
   val baseSourceUrl = "https://github.com/etaty/rediscala/tree/"
 
-  val v = "1.3"
+  private val v = "1.3p1-SNAPSHOT"
 
   lazy val standardSettings = Defaults.defaultSettings ++
     Seq(
       name := "rediscala",
       version := v,
       organization := "com.etaty.rediscala",
-      scalaVersion := "2.10.2",
+      scalaVersion := "2.10.4",
       resolvers ++= Resolvers.resolversList,
 
       publishTo <<= version {
@@ -102,4 +102,6 @@ object RediscalaBuild extends Build {
   def partitionTests(tests: Seq[TestDefinition]) = {
     Seq(new Group("inProcess", tests, InProcess))
   }
+
+  def getVersion():String = v
 }
